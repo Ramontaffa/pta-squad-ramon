@@ -1,4 +1,4 @@
-import routes from "./routes";
+import routes from "./routes/routes";
 import dotenv from "dotenv";
 import express from "express";
 import "@database";
