@@ -30,21 +30,22 @@ CREATE TABLE "Appointment" (
     "time" TEXT NOT NULL,
     "doctor" TEXT NOT NULL,
     "appointmentType" "AppointmentTypes" NOT NULL,
-    "petId" INTEGER NOT NULL,
+    "description" TEXT NOT NULL,
+    "patientId" INTEGER NOT NULL,
 
     CONSTRAINT "Appointment_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
-CREATE TABLE "Pet" (
+CREATE TABLE "Patient" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "tutorName" TEXT NOT NULL,
     "age" INTEGER NOT NULL,
     "species" "SpeciesTypes" NOT NULL,
 
-    CONSTRAINT "Pet_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "Patient_pkey" PRIMARY KEY ("id")
 );
 
 -- AddForeignKey
-ALTER TABLE "Appointment" ADD CONSTRAINT "Appointment_petId_fkey" FOREIGN KEY ("petId") REFERENCES "Pet"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE "Appointment" ADD CONSTRAINT "Appointment_patientId_fkey" FOREIGN KEY ("patientId") REFERENCES "Patient"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

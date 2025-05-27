@@ -45,6 +45,7 @@ model Appointment {
   time   String 
   doctor String
   appointmentType  AppointmentTypes
+  description String
 
   patientId  Int
   patient    Patient      @relation(fields: [patientId], references: [id])
